@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body style="background:#20B2AA">
+
+<div th:insert="HEADER"></div>
+<h1 class="fst-italic" style="color:#FFFFFF" align="center">Все категории</h1>
+<table>
+  <tr>
+    <form method="get" action="/newcategories">
+      <button style="background: #FFC0CB; margin-bottom: 20px" type="submit" class="btn btn-del">Добавить</button>
+    </form>
+    </td>
+  </tr>
+</table>
+<table>
+  <div th:each="el : ${categories}">
+    <tr>
+      <td><h3 style="color:#FFFFFF" th:text="${el.getName}" ></h3></td>
+    </tr>
+  </div>
+</table>
+</body>
+</html>

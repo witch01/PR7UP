@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background:#20B2AA">
+<div th:insert="HEADER"></div>
+<form th:action="${'/newcategories'}" method="post" th:object="${categories}">
+    <label style="color:#FFFFFF">Наименование</label>
+    <input type="text" th:field="*{name}" name="name">
+    <div style="color: floralwhite" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div><br>
+    <br>
+    <button style="background: #FFC0CB; margin-bottom: 20px" type="submit" class="btn btn-del">Добавить</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background:#20B2AA">
+<div th:insert="HEADER"></div>
+<form th:action="${'/newshop'}" method="post" th:object="${shop}">
+  <label style="color:#FFFFFF">Адрес</label>
+  <input type="text" th:field="*{adress}" name="adress">
+    <div style="color: floralwhite" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}"></div><br>
+    <br>
+  <button style="background: #FFC0CB; margin-bottom: 20px" type="submit" class="btn btn-del">Добавить</button>
+</form>
+</body>
+</html>

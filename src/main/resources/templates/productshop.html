@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background:#20B2AA">
+<div th:insert="HEADER"></div>
+<form th:action="${'/productshop/add'}" method="post">
+  <select  name="product">
+    <div th:each="element : ${products}">
+      <option th:value="${element.id}" th:text="${element.names}"></option>
+    </div>
+  </select>
+  <select  name="shop">
+    <div th:each="element : ${shops}">
+      <option th:value="${element.id}" th:text="${element.adress}"></option>
+    </div>
+  </select>
+  <br>
+  <button type="submit">Добавить товар</button>
+</form>
+
+<div th:each="prod : ${products}">
+  <h2 th:text="${prod.getNames()}"></h2>
+  Филиалы:<br>
+  <div th:each="sh : ${prod.getShops()}">
+    <div th:text="${sh.getAdress()}"></div><br>
+    <form th:action = "'univ/delProduct/'+ ${prod.id} + '/'+ ${sh.id}" method="post">
+      <button type="submit">Удалить</button>
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
